@@ -13,3 +13,11 @@ def preenche_frota(frota, nome_navio, linha, coluna, orientacao, tamanho):
     lista= define_posicoes(linha, coluna, orientacao, tamanho)
     frota[nome_navio].append(lista)
     return frota
+
+def faz_jogada(tabuleiro, linha, coluna):
+    if tabuleiro[linha][coluna] == "N":
+        tabuleiro[linha][coluna] = "X"
+        return True
+    else:
+        tabuleiro[linha][coluna] = "-"
+        return False

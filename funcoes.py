@@ -7,3 +7,7 @@ def define_posicoes(linha, coluna, orientacao, tamanho):
             lista.append([linha, coluna + i])
 
     return lista
+def preenche_frota(frota, nome_navio, linha, coluna, orientacao, tamanho):
+    lista= define_posicoes(linha, coluna, orientacao, tamanho)
+    frota[nome_navio] = lista
+    return frota

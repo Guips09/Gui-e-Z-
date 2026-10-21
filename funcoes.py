@@ -28,5 +28,5 @@ def posiciona_frota(frota):
             for posicao in posicoes:
                 linha = posicao[0]
                 coluna = posicao[1]
-                tabuleiro=[linha][coluna] = 1
+                tabuleiro=[linha][coluna]
     return tabuleiro

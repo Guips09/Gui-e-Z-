@@ -67,14 +67,13 @@ for navio in frota:
             frota = preenche_frota(
                 frota, navio, linha, coluna, orientacao, tamanho
             )
-        else:
-            print("Esta posição não está válida!")
-
+        
+           
 
 jogador = posiciona_frota(frota)
 oponente = posiciona_frota(frota_oponente)
 
-print(monta_tabuleiros(jogador, oponente))
+
 
 while afundados(frota_oponente, oponente) < 10:
     jogadal = int(input("Jogador, qual linha deseja atacar? "))

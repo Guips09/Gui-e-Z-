@@ -1,4 +1,4 @@
-from funcoes import posicao_valida,preenche_frota,faz_jogada,afundados,monta_tabuleiros,posiciona_frota
+from funcoes import posicao_valida, preenche_frota,faz_jogada,afundados,monta_tabuleiros,posiciona_frota
 
 frota = {
     "porta-aviões": [],
@@ -47,6 +47,7 @@ for navio in frota:
     tamanho = tamanhos[navio]
 
     while len(frota[navio]) < quantidades[navio]:
+        print(f"Insira as informações referentes ao navio {navio} que possui tamanho {tamanho}")
         linha = int(input("Linha: "))
         coluna = int(input("Coluna: "))
 
@@ -66,8 +67,9 @@ for navio in frota:
             frota = preenche_frota(
                 frota, navio, linha, coluna, orientacao, tamanho
             )
-        
-           
+        else:
+            print("Esta posição não está válida!")
+
 
 jogador = posiciona_frota(frota)
 oponente = posiciona_frota(frota_oponente)

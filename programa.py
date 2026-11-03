@@ -48,7 +48,7 @@ frota_jogador = {
 for navio in frota_jogador:
     tamanho = tamanhos[navio]
     while len(frota_jogador[navio]) < quantidades[navio]:
-        print(f"Insira as informações referentes ao navio {navio} que possui tamanho {tamanho}")
+        #print(f"Insira as informações referentes ao navio {navio} que possui tamanho {tamanho}")
         linha = int(input("Linha: "))
         coluna = int(input("Coluna: "))
 
@@ -67,11 +67,11 @@ for navio in frota_jogador:
         if posicao_valida(frota_jogador, linha, coluna, orientacao, tamanho):
             frota_jogador = preenche_frota(frota_jogador, navio, linha, coluna, orientacao, tamanho)
         else:
-            print("Esta posição não é válida!")
+            #print("Esta posição não é válida!")
 jogador = posiciona_frota(frota_jogador)
 oponente = posiciona_frota(frota_oponente)
 while afundados(frota_oponente, oponente) < 10:
-    print(monta_tabuleiros(jogador, oponente)) # Descomentei para você ver o tabuleiro
+    #print(monta_tabuleiros(jogador, oponente))
     
     jogadal = int(input("Jogador, qual linha deseja atacar? "))
     jogadac = int(input("Jogador, qual coluna deseja atacar? "))
@@ -79,6 +79,6 @@ while afundados(frota_oponente, oponente) < 10:
     if 0 <= jogadal < 10 and 0 <= jogadac < 10:
         oponente = faz_jogada(oponente, jogadal, jogadac)
     else:
-        print("Posição inválida! Digite linha e coluna entre 0 e 9.")
+        #print("Posição inválida! Digite linha e coluna entre 0 e 9.")
 
 print("Parabéns! Você derrubou todos os navios do seu oponente!")

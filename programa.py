@@ -58,10 +58,7 @@ for navio in frota_jogador:
                 orientacao = "vertical"
             elif opcao == 2:
                 orientacao = "horizontal"
-            else:
-                # print("Opção inválida!")
-                pass
-                continue
+    
         else:
             orientacao = "vertical"
 

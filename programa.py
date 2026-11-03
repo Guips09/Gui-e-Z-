@@ -46,41 +46,35 @@ frota_oponente = {
 for navio in frota:
     tamanho = tamanhos[navio]
 
-    for numero in range(quantidades[navio]):
-        for tentativa in iter(int, 1):
-            linha = int(input(f"{navio} — Linha: "))
-            coluna = int(input(f"{navio} — Coluna: "))
+    while len(frota[navio]) < quantidades[navio]:
+        linha = int(input())
+        coluna = int(input())
 
-            if navio != "submarino":
-                opcao = int(input("[1] Vertical [2] Horizontal > "))
+        if navio != "submarino":
+            opcao = int(input())
 
-                if opcao == 1:
-                    orientacao = "vertical"
-                elif opcao == 2:
-                    orientacao = "horizontal"
-                else:
-                    continue
-            else:
+            if opcao == 1:
                 orientacao = "vertical"
+            elif opcao == 2:
+                orientacao = "horizontal"
+            else:
+                continue
+        else:
+            orientacao = "vertical"
 
-            if posicao_valida(frota, linha, coluna, orientacao, tamanho):
-                frota = preenche_frota(
-                    frota, navio, linha, coluna, orientacao, tamanho
-                )
-                break
+        if posicao_valida(frota, linha, coluna, orientacao, tamanho):
+            frota = preenche_frota(
+                frota, navio, linha, coluna, orientacao, tamanho
+            )
 
 jogador = posiciona_frota(frota)
 oponente = posiciona_frota(frota_oponente)
 
-for rodada in iter(int, 1):
-    if afundados(frota_oponente, oponente) == 10:
-        break
-
-    jogadal = int(input("Jogador, qual linha deseja atacar? "))
-    jogadac = int(input("Jogador, qual coluna deseja atacar? "))
+while afundados(frota_oponente, oponente) < 10:
+    jogadal = int(input())
+    jogadac = int(input())
 
     if 0 <= jogadal < 10 and 0 <= jogadac < 10:
         oponente = faz_jogada(oponente, jogadal, jogadac)
 
-print(monta_tabuleiros(jogador, oponente))
 print("Parabéns! Você derrubou todos os navios do seu oponente!")

@@ -67,7 +67,7 @@ for navio in frota_jogador:
         if posicao_valida(frota_jogador, linha, coluna, orientacao, tamanho):
             frota_jogador = preenche_frota(frota_jogador, navio, linha, coluna, orientacao, tamanho)
         else:
-            pass
+            print("Esta posição não é válida!")
 jogador = posiciona_frota(frota_jogador)
 oponente = posiciona_frota(frota_oponente)
 while afundados(frota_oponente, oponente) < 10:
@@ -79,6 +79,6 @@ while afundados(frota_oponente, oponente) < 10:
     if 0 <= jogadal < 10 and 0 <= jogadac < 10:
         oponente = faz_jogada(oponente, jogadal, jogadac)
     else:
-        pass
+        #print("Posição inválida! Digite linha e coluna entre 0 e 9.")
 
 print("Parabéns! Você derrubou todos os navios do seu oponente!")

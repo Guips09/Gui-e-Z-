@@ -110,7 +110,7 @@ for navio in frota:
             frota = preenche_frota(
                 frota, navio, linha, coluna, orientacao, tamanho
             )
-        else:
+        #else:
             #print("Esta posição não está válida!")
 jogador = posiciona_frota(frota)
 oponente = posiciona_frota(frota_oponente)

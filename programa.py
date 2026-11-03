@@ -67,7 +67,7 @@ for navio in frota_jogador:
         if posicao_valida(frota_jogador, linha, coluna, orientacao, tamanho):
             frota_jogador = preenche_frota(frota_jogador, navio, linha, coluna, orientacao, tamanho)
         else:
-            #print("Esta posição não é válida!")
+            print("Esta posição não é válida!")
 jogador = posiciona_frota(frota_jogador)
 oponente = posiciona_frota(frota_oponente)
 while afundados(frota_oponente, oponente) < 10:

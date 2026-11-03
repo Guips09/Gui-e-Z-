@@ -121,7 +121,7 @@ while afundados(frota_oponente, oponente) < 10:
     if 0 <= jogadal < 10 and 0 <= jogadac < 10:
         oponente = faz_jogada(oponente, jogadal, jogadac)
         #print(monta_tabuleiros(jogador, oponente))
-    else:
-        #print("Posição inválida! Digite linha e coluna entre 0 e 9.")
+    #else:
+       # print("Posição inválida! Digite linha e coluna entre 0 e 9.")
 
 print("Parabéns! Você derrubou todos os navios do seu oponente!")

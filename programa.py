@@ -1,11 +1,5 @@
-from funcoes import (
-    posicao_valida,
-    preenche_frota,
-    posiciona_frota,
-    monta_tabuleiros,
-    faz_jogada,
-    afundados
-)
+from funcoes import (posicao_valida, preenche_frota, posiciona_frota,monta_tabuleiros, faz_jogada, afundados)
+import random
 
 quantidades = {
     "porta-aviões": 1,
@@ -49,7 +43,6 @@ frota_oponente = {
     ]
 }
 
-# Posicionamento da frota do jogador
 for navio in frota:
     tamanho = tamanhos[navio]
 
@@ -82,11 +75,9 @@ for navio in frota:
         else:
             print("Esta posição não está válida!")
 
-# Criação dos tabuleiros
 jogador = posiciona_frota(frota)
 oponente = posiciona_frota(frota_oponente)
 
-# Loop principal do jogo
 jogando = True
 
 while jogando:
@@ -120,3 +111,4 @@ while jogando:
     if afundados(frota_oponente, oponente) == 10:
         print("Parabéns! Você derrubou todos os navios do seu oponente!")
         jogando = False
+

@@ -1,13 +1,6 @@
-from funcoes import posicao_valida, preenche_frota,faz_jogada,afundados,monta_tabuleiros,posiciona_frota
+from funcoes import *
 
-frota = {
-    "porta-aviões": [],
-    "navio-tanque": [],
-    "contratorpedeiro": [],
-    "submarino": []
-}
-
-quantidades = {
+quantidades = { 
     "porta-aviões": 1,
     "navio-tanque": 2,
     "contratorpedeiro": 3,
@@ -21,6 +14,7 @@ tamanhos = {
     "submarino": 1
 }
 
+# Frota oponente já predefinida
 frota_oponente = {
     'porta-aviões': [
         [[9, 1], [9, 2], [9, 3], [9, 4]]
@@ -42,48 +36,38 @@ frota_oponente = {
     ]
 }
 
-
-for navio in frota:
+for navio in frota_jogador:
     tamanho = tamanhos[navio]
-
-    while len(frota[navio]) < quantidades[navio]:
-        print(f"Insira as informações referentes ao navio {navio} que possui tamanho {tamanho}")
+    while len(frota_jogador[navio]) < quantidades[navio]:
+        #print(f"Insira as informações referentes ao navio {navio} que possui tamanho {tamanho}")
         linha = int(input("Linha: "))
         coluna = int(input("Coluna: "))
-
         if navio != "submarino":
-            opcao = int(input("[1] Vertical [2] Horizontal >"))
-
-            if opcao == 1:
-                orientacao = "vertical"
-            elif opcao == 2:
-                orientacao = "horizontal"
-            else:
-                continue
+            opcao = int(input("[1] Vertical [2] Horizontal > "))
+        if opcao == 1:
+            orientacao = "vertical"
+        elif opcao == 2:
+            orientacao = "horizontal"
+        else:
+            print("Opção inválida!")
+            continue
         else:
             orientacao = "vertical"
-
-        if posicao_valida(frota, linha, coluna, orientacao, tamanho):
-            frota = preenche_frota(
-                frota, navio, linha, coluna, orientacao, tamanho
-            )
-        else:
-            print("Esta posição não está válida!")
-
-
-jogador = posiciona_frota(frota)
+        if posicao_valida(frota_jogador, linha, coluna, orientacao, tamanho):
+            frota_jogador = preenche_frota(frota_jogador, navio, linha, coluna, orientacao, tamanho)
+            else:
+                print("Esta posição não é válida!")
+jogador = posiciona_frota(frota_jogador)
 oponente = posiciona_frota(frota_oponente)
-
-
-
 while afundados(frota_oponente, oponente) < 10:
+    #print(monta_tabuleiros(jogador, oponente))
     jogadal = int(input("Jogador, qual linha deseja atacar? "))
     jogadac = int(input("Jogador, qual coluna deseja atacar? "))
-
     if 0 <= jogadal < 10 and 0 <= jogadac < 10:
         oponente = faz_jogada(oponente, jogadal, jogadac)
+        print(monta_tabuleiros(jogador, oponente))
     else:
         print("Posição inválida! Digite linha e coluna entre 0 e 9.")
 
-print(monta_tabuleiros(jogador, oponente))
+print(monta_tabuleiros(jogador,oponente))
 print("Parabéns! Você derrubou todos os navios do seu oponente!")

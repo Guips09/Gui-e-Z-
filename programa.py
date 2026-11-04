@@ -47,10 +47,7 @@ for navio in frota:
     tamanho = tamanhos[navio]
 
     while len(frota[navio]) < quantidades[navio]:
-        print(
-            f"Insira as informações referentes ao navio {navio} "
-            f"que possui tamanho {tamanho}"
-        )
+        print(f"Insira as informações referentes ao navio {navio} "f"que possui tamanho {tamanho}")
 
         linha = int(input("Linha: "))
         coluna = int(input("Coluna: "))
@@ -99,10 +96,7 @@ while jogando:
             coluna = int(input("Jogador, qual coluna deseja atacar? "))
 
         if oponente[linha][coluna] in ["X", "-"]:
-            print(
-                f"A posição linha {linha} e coluna {coluna} "
-                "já foi informada anteriormente!"
-            )
+            print(f"A posição linha {linha} e coluna {coluna} ""já foi informada anteriormente!")
         else:
             jogada_valida = True
 
@@ -112,3 +106,19 @@ while jogando:
         print("Parabéns! Você derrubou todos os navios do seu oponente!")
         jogando = False
 
+    else:
+        
+        linhao = random.randint(0, 9)
+        colunao = random.randint(0, 9)
+
+        while jogador[linhao][colunao] in ["X", "-"]:
+            linhao = random.randint(0, 9)
+            colunao = random.randint(0, 9)
+
+        print( f"Seu oponente está atacando na linha {linhao} "f"e coluna {colunao}")
+
+        jogador = faz_jogada(jogador, linhao, colunao)
+
+        if afundados(frota, jogador) == 10:
+            print("Xi! O oponente derrubou toda a sua frota =(")
+            jogando = False
